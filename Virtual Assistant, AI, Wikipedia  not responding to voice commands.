@@ -63,7 +63,7 @@ def greeting(text):
 def getPerson(text):
     wordlist = text.split()
     for i in range(0, len(wordlist)):
-        if i + 3 <= len(wordlist) - 1 and wordlist[i].lower() == 'who' and wordlist[i+i].lower() == 'is':
+        if i + 3 <= len(wordlist) - 1 and wordlist[i].lower() == 'who' and wordlist[i+1].lower() == 'is':
             return wordlist[i+2]+ ' '+ wordlist [i+3]
 while True:
     text = recordAudio()
@@ -82,7 +82,6 @@ while True:
             wiki = wikipedia.summary(person, sentences=2)
             response = response +' '+ wiki
         assistantResponse(response)
-
 
 
 
