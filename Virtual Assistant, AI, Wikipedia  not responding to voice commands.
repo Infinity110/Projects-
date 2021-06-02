@@ -76,6 +76,24 @@ while True:
         if('date' in text):
             get_date = getDate()
             response = response + ' '+get_date
+
+        if ('time' in text):
+            import datetime
+            now = datetime.datetime.now()
+            meridiem = ''
+            if now.hour >= 12:
+                meridiem = 'p.m'
+                hour = now.hour - 12
+            else:
+                meridiem = 'a.m'
+                hour = now.hour
+
+            if now.minute < 10:
+                minute = '0' + str(now.minute)
+            else:
+                minute = str(now.minute)
+            response = response + ' ' + ' It is' + str(hour) + ':' + minute + ' ' + meridiem + ' .'
+
         if('who is' in text):  #wikipedia not working, fix.
             import wikipedia
             person = getPerson(text)
